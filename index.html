@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Audit &mdash; $97 | Know Exactly Why You're Not Growing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f2ec;
+    --accent: #c8a96e;
+    --accent-dark: #a07840;
+    --border: rgba(200,169,110,0.25);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+/* HERO */
+.hero {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 6rem 2rem 4rem;
+position: relative;
+border-bottom: 1px solid var(–border);
+overflow: hidden;
+}
+.hero::after {
+content: ‘’;
+position: absolute;
+top: -20%; right: -10%;
+width: 600px; height: 600px;
+background: radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%);
+pointer-events: none;
+}
+.hero-inner { max-width: 820px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+
+.eyebrow {
+font-size: 0.7rem; font-weight: 500; letter-spacing: 0.25em;
+text-transform: uppercase; color: var(–accent); margin-bottom: 2.5rem;
+display: flex; align-items: center; gap: 1rem;
+opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
+}
+.eyebrow::before { content: ‘’; width: 32px; height: 1px; background: var(–accent); }
+
+.hero h1 {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(2.8rem, 7vw, 5.5rem);
+font-weight: 900; line-height: 1.05; letter-spacing: -0.02em;
+margin-bottom: 2rem;
+opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards;
+}
+.hero h1 em { font-style: italic; color: var(–accent); }
+
+.hero-sub {
+font-size: 1.1rem; color: rgba(245,242,236,0.6);
+max-width: 560px; margin-bottom: 1.5rem;
+opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards;
+}
+
+.hero-proof {
+display: flex; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;
+opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards;
+}
+.hero-proof-item {
+display: flex; align-items: center; gap: 0.5rem;
+font-size: 0.82rem; color: rgba(245,242,236,0.5);
+}
+.hero-proof-item::before { content: ‘✓’; color: var(–accent); font-weight: 700; font-size: 0.75rem; }
+
+.hero-cta {
+opacity: 0; animation: fadeUp 0.8s ease 0.85s forwards;
+display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+}
+.hero-cta-note { font-size: 0.78rem; color: rgba(245,242,236,0.3); font-style: italic; }
+
+/* PROOF BAR */
+.proof-bar {
+border-bottom: 1px solid var(–border);
+padding: 1.5rem 2rem;
+background: rgba(200,169,110,0.03);
+}
+.proof-bar-inner {
+max-width: 820px; margin: 0 auto;
+display: flex; justify-content: space-between; align-items: center;
+gap: 2rem; flex-wrap: wrap;
+}
+.proof-stat { text-align: center; }
+.proof-stat-num {
+font-family: ‘Playfair Display’, serif; font-size: 1.8rem;
+font-weight: 900; color: var(–accent); line-height: 1;
+}
+.proof-stat-label {
+font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+color: rgba(245,242,236,0.3); margin-top: 0.2rem;
+}
+.proof-divider { width: 1px; height: 40px; background: var(–border); }
+
+/* PAIN */
+.pain { padding: 6rem 2rem; border-bottom: 1px solid var(–border); }
+.pain-inner { max-width: 820px; margin: 0 auto; }
+.pain-line {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+font-weight: 400; padding: 1.4rem 0;
+border-bottom: 1px solid rgba(255,255,255,0.07);
+color: rgba(245,242,236,0.45);
+transition: color 0.3s ease; cursor: default;
+}
+.pain-line:hover { color: var(–white); }
+.pain-line:last-child { border-bottom: none; }
+.pain-line span { color: var(–accent); font-style: italic; }
+.pain-conclusion {
+margin-top: 3rem; padding: 2rem 2.5rem;
+border: 1px solid var(–border); background: rgba(200,169,110,0.04);
+}
+.pain-conclusion p {
+font-family: ‘Playfair Display’, serif;
+font-size: 1.4rem; font-style: italic; line-height: 1.65;
+}
+.pain-conclusion strong { color: var(–accent); font-style: normal; }
+
+/* SHARED */
+.section-label {
+font-size: 0.65rem; font-weight: 600; letter-spacing: 0.3em;
+text-transform: uppercase; color: var(–accent);
+margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;
+}
+.section-label::after { content: ‘’; flex: 1; height: 1px; background: var(–border); }
+.section-title {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(2rem, 5vw, 3.2rem);
+font-weight: 700; line-height: 1.1; margin-bottom: 3.5rem;
+}
+
+/* DELIVERABLES */
+.deliverables { padding: 6rem 2rem; border-bottom: 1px solid var(–border); }
+.deliverables-inner { max-width: 820px; margin: 0 auto; }
+.deliverable-grid {
+display: grid; grid-template-columns: 1fr 1fr;
+gap: 0; border: 1px solid var(–border);
+}
+.deliverable-item {
+padding: 2rem; border-right: 1px solid var(–border);
+border-bottom: 1px solid var(–border);
+transition: background 0.3s ease;
+}
+.deliverable-item:hover { background: rgba(200,169,110,0.04); }
+.deliverable-item:nth-child(2n) { border-right: none; }
+.deliverable-item:nth-last-child(-n+2) { border-bottom: none; }
+.d-number { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; color: var(–accent); margin-bottom: 0.8rem; }
+.d-title { font-family: ‘Playfair Display’, serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+.d-desc { font-size: 0.88rem; color: rgba(245,242,236,0.5); line-height: 1.6; }
+
+/* MOCKUP */
+.mockup { padding: 6rem 2rem; border-bottom: 1px solid var(–border); }
+.mockup-inner { max-width: 820px; margin: 0 auto; }
+.pdf-preview {
+margin-top: 3rem; border: 1px solid var(–border);
+background: #0f0f0f; padding: 3rem; position: relative;
+}
+.pdf-watermark {
+position: absolute; top: 50%; left: 50%;
+transform: translate(-50%, -50%) rotate(-30deg);
+font-family: ‘Playfair Display’, serif; font-size: 5rem;
+font-weight: 900; color: rgba(200,169,110,0.04);
+white-space: nowrap; pointer-events: none; user-select: none; letter-spacing: 0.1em;
+}
+.pdf-topbar {
+display: flex; justify-content: space-between; align-items: flex-start;
+padding-bottom: 1.5rem; border-bottom: 1px solid var(–border); margin-bottom: 2rem;
+}
+.pdf-brand-tag { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(–accent); }
+.pdf-doc-title { font-family: ‘Playfair Display’, serif; font-size: 1.4rem; font-weight: 700; margin-top: 0.4rem; }
+.pdf-meta-col { text-align: right; font-size: 0.75rem; color: rgba(245,242,236,0.35); line-height: 2; }
+.pdf-verdict {
+display: grid; grid-template-columns: repeat(4, 1fr);
+gap: 1px; background: rgba(200,169,110,0.15); margin-bottom: 2rem;
+}
+.pdf-verdict-cell { background: #0f0f0f; padding: 1.2rem; text-align: center; }
+.pdf-verdict-val {
+font-family: ‘Playfair Display’, serif; font-size: 1.6rem;
+font-weight: 900; color: var(–accent); line-height: 1;
+}
+.pdf-verdict-val.red { color: #e05555; }
+.pdf-verdict-val.green { color: #5ec47a; }
+.pdf-verdict-label { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(245,242,236,0.3); margin-top: 0.35rem; }
+.pdf-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.pdf-section-title {
+font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+color: var(–accent); margin-bottom: 1rem; padding-bottom: 0.4rem;
+border-bottom: 1px solid rgba(200,169,110,0.12);
+}
+.pdf-bar-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.6rem; }
+.pdf-bar-label { font-size: 0.72rem; color: rgba(245,242,236,0.45); width: 100px; flex-shrink: 0; }
+.pdf-bar-track { flex: 1; height: 3px; background: rgba(255,255,255,0.05); }
+.pdf-bar-fill { height: 100%; background: var(–accent); }
+.pdf-bar-fill.red { background: #e05555; }
+.pdf-bar-fill.green { background: #5ec47a; }
+.pdf-bar-val { font-size: 0.7rem; color: var(–accent); width: 30px; text-align: right; flex-shrink: 0; }
+.pdf-finding { display: flex; gap: 0.7rem; margin-bottom: 0.7rem; align-items: flex-start; }
+.pdf-dot { width: 5px; height: 5px; border-radius: 50%; background: var(–accent); flex-shrink: 0; margin-top: 0.5rem; }
+.pdf-dot.red { background: #e05555; }
+.pdf-finding-text { font-size: 0.78rem; color: rgba(245,242,236,0.45); line-height: 1.5; }
+.pdf-priority { display: flex; gap: 0.8rem; margin-bottom: 0.6rem; align-items: flex-start; }
+.pdf-priority-num {
+background: var(–accent); color: var(–black);
+width: 18px; height: 18px; display: flex; align-items: center; justify-content: center;
+font-size: 0.65rem; font-weight: 700; flex-shrink: 0; margin-top: 0.1rem;
+}
+.pdf-priority-text { font-size: 0.78rem; color: rgba(245,242,236,0.5); line-height: 1.5; }
+
+/* PROCESS */
+.process { padding: 6rem 2rem; border-bottom: 1px solid var(–border); }
+.process-inner { max-width: 820px; margin: 0 auto; }
+.process-step {
+display: grid; grid-template-columns: 80px 1fr;
+gap: 2rem; padding: 2.5rem 0;
+border-bottom: 1px solid var(–border); align-items: start;
+}
+.process-step:last-child { border-bottom: none; }
+.step-num { font-family: ‘Playfair Display’, serif; font-size: 3.5rem; font-weight: 900; color: rgba(200,169,110,0.18); line-height: 1; }
+.step-content h3 { font-family: ‘Playfair Display’, serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+.step-content p { font-size: 0.9rem; color: rgba(245,242,236,0.5); max-width: 480px; }
+
+/* GUARANTEE */
+.guarantee { padding: 5rem 2rem; border-bottom: 1px solid var(–border); background: rgba(200,169,110,0.02); }
+.guarantee-inner {
+max-width: 820px; margin: 0 auto;
+display: grid; grid-template-columns: auto 1fr; gap: 3rem; align-items: center;
+}
+.guarantee-icon { font-size: 4rem; line-height: 1; }
+.guarantee-text h2 { font-family: ‘Playfair Display’, serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.8rem; }
+.guarantee-text p { color: rgba(245,242,236,0.55); max-width: 500px; line-height: 1.8; }
+
+/* PRICING */
+.pricing { padding: 6rem 2rem; border-bottom: 1px solid var(–border); }
+.pricing-inner { max-width: 820px; margin: 0 auto; }
+.price-card {
+border: 1px solid var(–accent); padding: 3.5rem;
+position: relative; background: rgba(200,169,110,0.03); margin-top: 3rem;
+}
+.price-badge {
+position: absolute; top: -1px; right: 3rem;
+background: var(–accent); color: var(–black);
+font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em;
+text-transform: uppercase; padding: 0.35rem 1rem;
+}
+.price-top { display: flex; align-items: flex-end; gap: 1.5rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+.price-amount { font-family: ‘Playfair Display’, serif; font-size: 5rem; font-weight: 900; line-height: 1; }
+.price-amount sup { font-size: 2rem; vertical-align: top; margin-top: 0.9rem; display: inline-block; color: var(–accent); }
+.price-value-note { font-size: 0.85rem; color: rgba(245,242,236,0.4); font-style: italic; padding-bottom: 0.5rem; line-height: 1.6; }
+.price-platform { font-size: 0.85rem; color: rgba(245,242,236,0.4); margin-bottom: 2.5rem; }
+.price-features {
+list-style: none; display: grid; grid-template-columns: 1fr 1fr;
+gap: 0.9rem 2rem; margin-bottom: 2.5rem;
+padding-top: 2rem; border-top: 1px solid var(–border);
+}
+.price-features li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.92rem; color: rgba(245,242,236,0.75); line-height: 1.5; }
+.price-features li::before { content: ‘✓’; color: var(–accent); font-weight: 700; font-size: 0.82rem; flex-shrink: 0; margin-top: 0.1rem; }
+.payment-box { margin-top: 2rem; padding: 1.8rem 2rem; border: 1px solid rgba(200,169,110,0.2); background: rgba(0,0,0,0.3); }
+.payment-box h4 { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(–accent); margin-bottom: 1.2rem; }
+.payment-step { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 0.88rem; color: rgba(245,242,236,0.65); align-items: flex-start; line-height: 1.6; }
+.payment-step-num { background: var(–accent); color: var(–black); width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 700; flex-shrink: 0; margin-top: 0.15rem; }
+.crypto-address { font-family: monospace; font-size: 0.78rem; color: var(–accent); background: rgba(200,169,110,0.08); padding: 0.5rem 0.8rem; margin-top: 0.5rem; word-break: break-all; display: block; border: 1px solid rgba(200,169,110,0.15); }
+
+/* BUTTONS */
+.btn {
+display: inline-block; padding: 1rem 2.5rem;
+background: var(–accent); color: var(–black);
+font-family: ‘DM Sans’, sans-serif; font-size: 0.82rem;
+font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+text-decoration: none; transition: background 0.2s ease, transform 0.15s ease;
+cursor: pointer; border: none;
+}
+.btn:hover { background: var(–accent-dark); transform: translateY(-2px); }
+.btn-large { padding: 1.3rem 3.5rem; font-size: 0.88rem; }
+
+/* FAQ */
+.faq { padding: 6rem 2rem; border-bottom: 1px solid var(–border); }
+.faq-inner { max-width: 820px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(–border); padding: 1.8rem 0; }
+.faq-q { font-family: ‘Playfair Display’, serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.7rem; }
+.faq-a { font-size: 0.9rem; color: rgba(245,242,236,0.5); max-width: 580px; line-height: 1.75; }
+
+/* FINAL CTA */
+.final-cta { padding: 8rem 2rem; text-align: center; border-bottom: 1px solid var(–border); position: relative; overflow: hidden; }
+.final-cta::before { content: ‘’; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 700px; height: 700px; background: radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 70%); pointer-events: none; }
+.final-cta-inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+.final-cta h2 { font-family: ‘Playfair Display’, serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+.final-cta h2 em { color: var(–accent); font-style: italic; }
+.final-cta p { font-size: 1rem; color: rgba(245,242,236,0.5); margin-bottom: 3rem; line-height: 1.7; }
+
+/* FOOTER */
+.footer { padding: 3rem 2rem; text-align: center; }
+.footer-inner { max-width: 820px; margin: 0 auto; }
+.footer-email { font-family: ‘Playfair Display’, serif; font-size: 1rem; font-style: italic; color: var(–accent); text-decoration: none; }
+.footer-email:hover { text-decoration: underline; }
+.footer-note { margin-top: 1.2rem; font-size: 0.72rem; color: rgba(245,242,236,0.2); letter-spacing: 0.05em; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 640px) {
+.deliverable-grid { grid-template-columns: 1fr; }
+.deliverable-item:nth-child(2n) { border-right: 1px solid var(–border); }
+.deliverable-item:nth-last-child(-n+2) { border-bottom: 1px solid var(–border); }
+.deliverable-item:last-child { border-bottom: none; }
+.guarantee-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+.pdf-verdict { grid-template-columns: 1fr 1fr; }
+.pdf-cols { grid-template-columns: 1fr; }
+.process-step { grid-template-columns: 50px 1fr; gap: 1rem; }
+.step-num { font-size: 2.5rem; }
+.price-card { padding: 2rem; }
+.price-features { grid-template-columns: 1fr; }
+.proof-bar-inner { justify-content: center; }
+.proof-divider { display: none; }
+.pdf-preview { padding: 1.5rem; }
+.pdf-topbar { flex-direction: column; gap: 1rem; }
+.pdf-meta-col { text-align: left; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Professional Social Media Audit</p>
+    <h1>You're posting.<br>Nobody's coming.<br><em>I'll tell you exactly why.</em></h1>
+    <p class="hero-sub">A ruthlessly honest, data-driven audit of your Instagram, TikTok, or LinkedIn &mdash; delivered as a detailed PDF report in 48 hours. No templates. Built for your account only.</p>
+    <div class="hero-proof">
+      <span class="hero-proof-item">Delivered in 48 hours</span>
+      <span class="hero-proof-item">100% money-back guarantee</span>
+      <span class="hero-proof-item">Specific to your account &amp; niche</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#pricing" class="btn btn-large">Get Your Audit &mdash; $97</a>
+      <span class="hero-cta-note">One-time payment · No subscription</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+
+<div class="proof-bar">
+  <div class="proof-bar-inner">
+    <div class="proof-stat">
+      <p class="proof-stat-num">48h</p>
+      <p class="proof-stat-label">Delivery Time</p>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <p class="proof-stat-num">10+</p>
+      <p class="proof-stat-label">Pages of Analysis</p>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <p class="proof-stat-num">3</p>
+      <p class="proof-stat-label">Platforms Covered</p>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <p class="proof-stat-num">100%</p>
+      <p class="proof-stat-label">Money-Back Guarantee</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAIN -->
+
+<section class="pain">
+  <div class="pain-inner">
+    <p class="section-label">Sound familiar?</p>
+    <div class="pain-lines">
+      <p class="pain-line">You post <span>consistently</span>. The numbers don't move.</p>
+      <p class="pain-line">Smaller accounts in your niche are <span>blowing past you</span>.</p>
+      <p class="pain-line">You've switched formats, tested hashtags, changed your posting time. <span>Nothing sticks.</span></p>
+      <p class="pain-line">You're starting to think the algorithm just <span>hates you</span>.</p>
+    </div>
+    <div class="pain-conclusion">
+      <p>It's not the algorithm.<br>It's not your effort.<br>It's a <strong>fixable strategy problem</strong> &mdash; and I'll show you exactly where it is.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+
+<section class="deliverables">
+  <div class="deliverables-inner">
+    <p class="section-label">What's included</p>
+    <h2 class="section-title">A complete audit.<br>No fluff. No guesswork.</h2>
+    <div class="deliverable-grid">
+      <div class="deliverable-item">
+        <p class="d-number">01</p>
+        <h3 class="d-title">Bio &amp; First Impression</h3>
+        <p class="d-desc">Does your profile turn visitors into followers in under 3 seconds? We find out.</p>
+      </div>
+      <div class="deliverable-item">
+        <p class="d-number">02</p>
+        <h3 class="d-title">Last 15 Posts Breakdown</h3>
+        <p class="d-desc">What's working, what's hurting you, and exactly why &mdash; with data to back it up.</p>
+      </div>
+      <div class="deliverable-item">
+        <p class="d-number">03</p>
+        <h3 class="d-title">Content Strategy Evaluation</h3>
+        <p class="d-desc">What's missing from your content mix and what your audience actually needs to see.</p>
+      </div>
+      <div class="deliverable-item">
+        <p class="d-number">04</p>
+        <h3 class="d-title">Engagement Rate Analysis</h3>
+        <p class="d-desc">How you compare to accounts in your niche &mdash; with real benchmarks, not guesses.</p>
+      </div>
+      <div class="deliverable-item">
+        <p class="d-number">05</p>
+        <h3 class="d-title">Visual Consistency Review</h3>
+        <p class="d-desc">Does your feed build trust instantly, or quietly push people away?</p>
+      </div>
+      <div class="deliverable-item">
+        <p class="d-number">06</p>
+        <h3 class="d-title">30-Day Action Plan</h3>
+        <p class="d-desc">5 specific priorities, each actionable within 24 hours. Nothing vague.</p>
+      </div>
+    </div>
+    <p style="margin-top:2rem; font-size:0.85rem; color:rgba(245,242,236,0.35); font-style:italic; text-align:center;">Everything delivered as a detailed PDF &mdash; specific to YOUR account, YOUR niche, YOUR goals.</p>
+  </div>
+</section>
+
+<!-- MOCKUP -->
+
+<section class="mockup">
+  <div class="mockup-inner">
+    <p class="section-label">Sample report</p>
+    <h2 class="section-title">This is exactly<br>what you'll receive.</h2>
+    <div class="pdf-preview">
+      <div class="pdf-watermark">SAMPLE</div>
+      <div class="pdf-topbar">
+        <div>
+          <p class="pdf-brand-tag">Social Media Audit · Confidential</p>
+          <p class="pdf-doc-title">Instagram Account Analysis</p>
+        </div>
+        <div class="pdf-meta-col">
+          <p>@example_brand</p>
+          <p>Niche: Wellness / Coaching</p>
+          <p>Followers: 3,200</p>
+          <p>Audit date: May 2025</p>
+        </div>
+      </div>
+      <div class="pdf-verdict">
+        <div class="pdf-verdict-cell">
+          <p class="pdf-verdict-val red">3.5<span style="font-size:0.9rem">/10</span></p>
+          <p class="pdf-verdict-label">Bio Score</p>
+        </div>
+        <div class="pdf-verdict-cell">
+          <p class="pdf-verdict-val red">0.8<span style="font-size:0.9rem">%</span></p>
+          <p class="pdf-verdict-label">Engagement Rate</p>
+        </div>
+        <div class="pdf-verdict-cell">
+          <p class="pdf-verdict-val">6.5<span style="font-size:0.9rem">/10</span></p>
+          <p class="pdf-verdict-label">Visual Score</p>
+        </div>
+        <div class="pdf-verdict-cell">
+          <p class="pdf-verdict-val green">+38<span style="font-size:0.9rem">%</span></p>
+          <p class="pdf-verdict-label">Growth Potential</p>
+        </div>
+      </div>
+      <div class="pdf-cols">
+        <div>
+          <p class="pdf-section-title">Content Pillar Coverage</p>
+          <div class="pdf-bar-row">
+            <p class="pdf-bar-label">Educational</p>
+            <div class="pdf-bar-track"><div class="pdf-bar-fill green" style="width:15%"></div></div>
+            <p class="pdf-bar-val" style="color:#5ec47a">15%</p>
+          </div>
+          <div class="pdf-bar-row">
+            <p class="pdf-bar-label">Promotional</p>
+            <div class="pdf-bar-track"><div class="pdf-bar-fill red" style="width:70%"></div></div>
+            <p class="pdf-bar-val" style="color:#e05555">70%</p>
+          </div>
+          <div class="pdf-bar-row">
+            <p class="pdf-bar-label">Personal / BTS</p>
+            <div class="pdf-bar-track"><div class="pdf-bar-fill" style="width:10%"></div></div>
+            <p class="pdf-bar-val">10%</p>
+          </div>
+          <div class="pdf-bar-row">
+            <p class="pdf-bar-label">Community</p>
+            <div class="pdf-bar-track"><div class="pdf-bar-fill" style="width:5%"></div></div>
+            <p class="pdf-bar-val">5%</p>
+          </div>
+          <p class="pdf-section-title" style="margin-top:1.5rem">Key Findings</p>
+          <div class="pdf-finding"><div class="pdf-dot red"></div><p class="pdf-finding-text">Bio has no value proposition &mdash; visitors don't understand the offer in under 3 seconds.</p></div>
+          <div class="pdf-finding"><div class="pdf-dot red"></div><p class="pdf-finding-text">70% promotional content is suppressing reach &mdash; algorithm is deprioritizing the account.</p></div>
+          <div class="pdf-finding"><div class="pdf-dot red"></div><p class="pdf-finding-text">0.8% engagement is 4× below the wellness niche benchmark of 3.4%.</p></div>
+        </div>
+        <div>
+          <p class="pdf-section-title">30-Day Action Plan</p>
+          <div class="pdf-priority"><div class="pdf-priority-num">1</div><p class="pdf-priority-text">Rewrite bio with a clear outcome statement and a call-to-action link.</p></div>
+          <div class="pdf-priority"><div class="pdf-priority-num">2</div><p class="pdf-priority-text">Shift content mix: 40% educational, 30% personal, 30% promotional.</p></div>
+          <div class="pdf-priority"><div class="pdf-priority-num">3</div><p class="pdf-priority-text">Post 3× per week at consistent times (Tue/Thu/Sat, 7&ndash;9am local).</p></div>
+          <div class="pdf-priority"><div class="pdf-priority-num">4</div><p class="pdf-priority-text">Replace broad hashtags with 5&ndash;10 niche tags under 500k posts.</p></div>
+          <div class="pdf-priority"><div class="pdf-priority-num">5</div><p class="pdf-priority-text">Add a question CTA to every caption to drive comments and signal engagement.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+
+<section class="process">
+  <div class="process-inner">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">Three steps.<br>48 hours.</h2>
+    <div>
+      <div class="process-step">
+        <p class="step-num">①</p>
+        <div class="step-content">
+          <h3>You order</h3>
+          <p>Secure payment in USDT. Instant confirmation to your email. No account needed, no waiting.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <p class="step-num">②</p>
+        <div class="step-content">
+          <h3>You fill a short intake form</h3>
+          <p>5 minutes. Your niche, goals, what you've already tried. The more specific you are, the sharper your audit.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <p class="step-num">③</p>
+        <div class="step-content">
+          <h3>You receive your report</h3>
+          <p>A complete 10-page PDF audit delivered to your inbox in 48 hours. No calls. No back and forth. Just answers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+
+<section class="guarantee">
+  <div class="guarantee-inner">
+    <div class="guarantee-icon">🔒</div>
+    <div class="guarantee-text">
+      <h2>100% Money-Back Guarantee</h2>
+      <p>Read the audit. If you don't feel it was worth every dollar &mdash; I'll refund you in full. No questions. No drama. No waiting. The guarantee is real because the work is real.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <p class="section-label">Investment</p>
+    <h2 class="section-title">One offer.<br>Zero surprises.</h2>
+    <div class="price-card">
+      <span class="price-badge">Full Audit</span>
+      <div class="price-top">
+        <p class="price-amount"><sup>$</sup>97</p>
+        <p class="price-value-note">Less than one hour with a social media consultant.<br>With a full written report you keep and act on forever.</p>
+      </div>
+      <p class="price-platform">One platform &mdash; Instagram, TikTok, or LinkedIn</p>
+      <ul class="price-features">
+        <li>10-page PDF report</li>
+        <li>Bio &amp; first impression score</li>
+        <li>Last 15 posts breakdown</li>
+        <li>Content strategy evaluation</li>
+        <li>Engagement vs. niche benchmarks</li>
+        <li>Visual consistency review</li>
+        <li>30-day action plan (5 priorities)</li>
+        <li>Delivered in 48 hours</li>
+        <li>100% money-back guarantee</li>
+        <li>Specific to your account only</li>
+      </ul>
+      <div class="payment-box">
+        <h4>How to order &mdash; 3 steps</h4>
+        <div class="payment-step">
+          <div class="payment-step-num">1</div>
+          <div>Send <strong>$97 in USDT (TRC-20)</strong> to this wallet:<br>
+          <code class="crypto-address">TGhYHZ6XXRbko8CGugCPrHp4P9pNkxmiCM</code></div>
+        </div>
+        <div class="payment-step">
+          <div class="payment-step-num">2</div>
+          <div>Email your receipt + your Instagram / TikTok / LinkedIn username to:<br>
+          <strong style="color:var(--accent)">deogratiasaboki@gmail.com</strong></div>
+        </div>
+        <div class="payment-step">
+          <div class="payment-step-num">3</div>
+          <div>Receive your complete audit PDF within <strong>48 hours</strong>. Done.</div>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+        <a href="mailto:deogratiasaboki@gmail.com?subject=Audit Order &mdash; $97" class="btn btn-large">Order Now &mdash; $97</a>
+        <span style="font-size:0.78rem; color:rgba(245,242,236,0.3); font-style:italic;">Money-back guarantee included</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+
+<section class="faq">
+  <div class="faq-inner">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">Questions.</h2>
+    <div>
+      <div class="faq-item">
+        <p class="faq-q">What platforms do you audit?</p>
+        <p class="faq-a">Instagram, TikTok, and LinkedIn. One platform per audit. Choose the one where you want results the most.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How do I pay?</p>
+        <p class="faq-a">USDT on TRC-20 network. Send to the wallet address above, email your receipt and username, and you're confirmed. Simple as that.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What if I'm not satisfied?</p>
+        <p class="faq-a">Full refund, no questions asked. The guarantee exists because I'm confident in the quality of this work. If it doesn't deliver real value, you don't pay.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Do I need a large following?</p>
+        <p class="faq-a">Not at all. This audit is most powerful for accounts between 0 and 50,000 followers &mdash; exactly the stage where the right strategy changes everything. If you're stuck, this is for you.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How long does delivery take?</p>
+        <p class="faq-a">48 hours from when you submit your intake form. No delays, no chasing. Your report will be in your inbox within two business days.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Is this AI-generated or done by a real person?</p>
+        <p class="faq-a">Both. AI tools are used to analyze and benchmark data at scale. The strategic interpretation and every recommendation is written specifically for your account &mdash; not copy-pasted from a template.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Stop guessing.<br>Start <em>growing.</em></h2>
+    <p>For $97, you'll know exactly what's wrong and exactly what to fix. That's worth more than six months of posting blind with zero results.</p>
+    <a href="#pricing" class="btn btn-large">Get Your Audit &mdash; $97</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p style="font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(245,242,236,0.2); margin-bottom:0.8rem">Questions?</p>
+    <a href="mailto:deogratiasaboki@gmail.com" class="footer-email">deogratiasaboki@gmail.com</a>
+    <p class="footer-note">Response within 24 hours · One-time payment · No subscription</p>
+  </div>
+</footer>
+
+</body>
+</html>
